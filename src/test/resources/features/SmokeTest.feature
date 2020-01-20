@@ -22,4 +22,4 @@ Feature: Smoke test
   @CT25-18
   Scenario: Verify Accounts page
     And user navigates to "Customers" then to "Accounts"
-    Then user verifies that "All Account" page subtitle is displayed
+    Then user verifies that "All Accounts" page subtitle is displayed
