@@ -53,6 +53,12 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.21</version>
         </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>io.appium</groupId>
@@ -69,12 +75,11 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
                 <configuration>
-                    <runOrder>Alphabetical</runOrder>
                     <includes>
                         <include>**/CucumberRunner.java</include>
-                        <include>**/FailedRunner.java</include>
                     </includes>
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <rerunFailingTestsCount>1</rerunFailingTestsCount>
+                    <testFailureIgnore>false</testFailureIgnore>
                 </configuration>
             </plugin>
             <plugin>
@@ -121,30 +126,8 @@
                             <includes>
                                 <include>**/RegressionRunner.java</include>
                             </includes>
-                            <testFailureIgnore>true</testFailureIgnore>
+                            <testFailureIgnore>false</testFailureIgnore>
                         </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>net.masterthought</groupId>
-                        <artifactId>maven-cucumber-reporting</artifactId>
-                        <version>4.9.0</version>
-                        <executions>
-                            <execution>
-                                <id>execution</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-                                <configuration>
-                                    <projectName>Cucumber HTML Reports</projectName>
-                                    <outputDirectory>${project.build.directory}/regression</outputDirectory>
-                                    <inputDirectory>${project.build.directory}</inputDirectory>
-                                    <jsonFiles>
-                                        <param>**/cucumber*.json</param>
-                                    </jsonFiles>
-                                </configuration>
-                            </execution>
-                        </executions>
                     </plugin>
                 </plugins>
             </build>
