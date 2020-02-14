@@ -122,15 +122,28 @@ public class Driver {
                     try {
                     DesiredCapabilities caps = new DesiredCapabilities();
                     caps.setCapability("browserName", "android");
-                    caps.setCapability("device", "Samsung Galaxy S8");
+                    caps.setCapability("device", "Samsung Galaxy S10");
                     caps.setCapability("realMobile", "true");
-                    caps.setCapability("os_version", "7.0");
+                    caps.setCapability("os_version", "9.0");
                     caps.setCapability("name", "VyTrack tests");
                     driverPool.set(new RemoteWebDriver(new URL(URL), caps));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;
+                case "mobile_safari_remote":
+                    try {
+                        DesiredCapabilities caps = new DesiredCapabilities();
+                        caps.setCapability("browserName", "safari");
+                        caps.setCapability("device", "iPhone 11 Pro Max");
+                        caps.setCapability("os_version", "13");
+                        caps.setCapability("realMobile", "true");
+                        caps.setCapability("name", "VyTrack tests");
+                        driverPool.set(new RemoteWebDriver(new URL(URL), caps));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
                 default:
                     throw new RuntimeException("Invalid browser name!");
             }
