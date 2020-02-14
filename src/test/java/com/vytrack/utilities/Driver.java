@@ -1,5 +1,6 @@
 package com.vytrack.utilities;
 
+import io.appium.java_client.remote.MobileBrowserType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.cucumber.java.hu.De;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -18,6 +19,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Driver {
@@ -98,7 +101,7 @@ public class Driver {
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_2");
                         desiredCapabilities.setCapability(MobileCapabilityType.VERSION, "7.0");
-                        desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, BrowserType.CHROME);
+                        desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, MobileBrowserType.CHROME);
                         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, Platform.ANDROID);
                         driverPool.set(new RemoteWebDriver(new URL("http://localhost:4723/wd/hub"), desiredCapabilities));
                     } catch (Exception e) {
