@@ -18,6 +18,7 @@ import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +27,10 @@ import java.util.Map;
 public class Driver {
     private static Logger logger = Logger.getLogger(Driver.class);
     private static ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
+    private static String userName = "vasylfomiuk2";
+    private static String accessKey = "N9rzTpSQYnQFNLe2YPgr";
+    private static final String URL = "https://" + userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
+
 
     private Driver() {
 
@@ -113,6 +118,19 @@ public class Driver {
                         e.printStackTrace();
                     }
                     break;
+                case "mobile_chrome_remote":
+                    try {
+                    DesiredCapabilities caps = new DesiredCapabilities();
+                    caps.setCapability("browserName", "android");
+                    caps.setCapability("device", "Samsung Galaxy S8");
+                    caps.setCapability("realMobile", "true");
+                    caps.setCapability("os_version", "7.0");
+                    caps.setCapability("name", "VyTrack tests");
+                    driverPool.set(new RemoteWebDriver(new URL(URL), caps));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
                 default:
                     throw new RuntimeException("Invalid browser name!");
             }
