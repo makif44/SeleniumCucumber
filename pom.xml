@@ -66,6 +66,8 @@
             <version>7.3.0</version>
         </dependency>
 
+
+
     </dependencies>
 
     <build>
@@ -121,7 +123,7 @@
 
                             <parallel>methods</parallel>
                             <perCoreThreadCount>false</perCoreThreadCount>
-                            <threadCountMethods>2</threadCountMethods>
+                            <threadCountMethods>4</threadCountMethods>
 
                             <includes>
                                 <include>**/RegressionRunner.java</include>

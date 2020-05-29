@@ -4,6 +4,7 @@ import com.vytrack.pages.CreateCarPage;
 import com.vytrack.pages.VehiclesPage;
 import com.vytrack.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 
 import java.util.List;
 import java.util.Map;
